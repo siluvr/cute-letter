@@ -342,34 +342,11 @@ body:has(.menu) {
 	outline-offset: 3px;
 }
 
-/* Keep the Back/love button secret until the page is scrolled to its end. */
+/* Keep the Back/love button available across browsers, including GitHub Pages. */
 body:has(.menu) > a:last-of-type {
 	position: fixed;
 	right: 20px;
 	bottom: 20px;
-	visibility: hidden;
-	opacity: 0;
-	transition: opacity 200ms ease;
-}
-
-@supports (animation-timeline: scroll()) {
-	@keyframes show-button-at-page-end {
-		to {
-			visibility: visible;
-			opacity: 1;
-		}
-	}
-
-	body:has(.menu) > a:last-of-type {
-		animation: show-button-at-page-end linear both;
-		animation-timeline: scroll(root);
-		animation-range: 98% 100%;
-	}
-}
-
-body:has(.menu) > a:last-of-type:focus-within {
-	visibility: visible;
-	opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
